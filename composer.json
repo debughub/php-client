@@ -1,0 +1,17 @@
+{
+    "name": "debughub/php-client",
+    "description": "Debughub client for PHP",
+    "authors": [
+        {
+            "name": "Janis Mozgis",
+            "email": "janismozgis@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4" : {
+            "Debughub\\Client\\" : "src/"
+        }
+    }
+}
