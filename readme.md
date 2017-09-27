@@ -1,16 +1,13 @@
-## DebugHub.com client
+## DebugHub.com PHP client
 
 The project is under development, not ready for public eyes yet. If you are interested, shoot a email to info@debughub.com
 
 Installation:
-For now laravel 5.x only.
+This package is for plain PHP. For Laravel installation go to debughubs laravel repo
 1. add this to composer.json
-`"debughub/client": "dev-master"`
+`"debughub/client": "0.1.*"`
 
-2. Add service provider to config/app.php file
-`Debughub\Client\DebughubServiceProvider::class`
-
-3. create new config file in config dir with content:
+2. create new config file in config dir with content:
 `<?php
 return [
     'api_key' => '',
@@ -21,3 +18,11 @@ return [
         'password'
     ]  
 ];`
+
+3. Somewhere in your code init the debughub client:
+`$debughub = new \Debughub\PhpClient\Debughub('path/to/config');`
+Be sure to import the composer's autoload as well.
+
+To log query use the `$debughub->query()` method.
+
+To add a normal log use `$debughub->log()` method
