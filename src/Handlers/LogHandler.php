@@ -51,7 +51,7 @@ class LogHandler implements Reportable
         }
         if (isset($this->logs[$index])) {
             $this->logs[$index]['time'] = microtime();
-            $this->logs[$index]['duration'] = Debughub\PhpClient\microtimeFloat($this->logs[$index]['time']) - Debughub\PhpClient\microtimeFloat($this->logs[$index]['start_time']);
+            $this->logs[$index]['duration'] = \Debughub\PhpClient\microtimeFloat($this->logs[$index]['time']) - \Debughub\PhpClient\microtimeFloat($this->logs[$index]['start_time']);
         }
     }
 

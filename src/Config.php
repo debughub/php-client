@@ -11,6 +11,7 @@ class Config
     private $gitRoot;
     private $blacklistParams;
     private $enabled;
+    private $sendQueryData;
 
     public function setApiKey($key)
     {
@@ -36,6 +37,10 @@ class Config
     {
         $this->enabled = $enabled;
     }
+    public function setSendQueryData($sendQueryData)
+    {
+        $this->sendQueryData = $sendQueryData;
+    }
 
     public function getApiKey()
     {
@@ -60,6 +65,10 @@ class Config
     public function getEnabled()
     {
         return $this->enabled;
+    }
+    public function getSendQueryData()
+    {
+        return $this->sendQueryData;
     }
 
 }

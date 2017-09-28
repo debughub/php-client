@@ -45,7 +45,8 @@ class Debughub
         $this->config->setEndpoint($config['endpoint']);
         $this->config->setGitRoot($config['git_root']);
         $this->config->setBlacklistParams($config['blacklist_params']);
-        $this->config->setEnabled($config['enabled']);
+        $this->config->setEnabled($config['enabled'] ? true : false);
+        $this->config->setSendQueryData($config['send_query_data'] ? true : false);
 
     }
 
@@ -89,18 +90,20 @@ class Debughub
     }
 
     public function log($data = '', $name = 'info'){
-        $this->logHandler->addLog($data, $name);
+        if ($this->config->getEnabled()) {
+            $this->logger->logHandler->addLog($data, $name);
+        }
     }
 
     public function startLog($data = '', $name = 'info') {
         if ($this->config->getEnabled()) {
-            return $this->logHandler->addLog($data, $name);
+            return $this->logger->logHandler->addLog($data, $name);
         }
         return 0;
     }
     public function endLog($index = false) {
         if ($this->config->getEnabled()) {
-            return $this->logHandler->endLog($index);
+            return $this->logger->logHandler->endLog($index);
 
         }
     }

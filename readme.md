@@ -40,7 +40,7 @@ For example if you use a class for all your Database querying, you can simply ad
 
 `$data` -  array of data, that should replace the `?` in your code. This will not be send if you disable `send_query_data` in the config.
 
-`$duration` - milliseconds it took to execute the query.
+`$duration` - seconds it took to execute the query.
 
 `$connection` - name of the DB connection. Usefull if your application uses multiple connections
 
@@ -72,4 +72,11 @@ By default the log does not have a duration and in debughub's timeline will show
 $debughubLogIndex = $debughub->startLog('something just happened', 'info');
 //do some API call or something
 $debughub->endLog(debughubLogIndex); // you dont have to get or pass the log index, if it is not passed, the debughub will assume it was the last log you want to update with endLog() method.
+```
+
+#### Routes
+If you want to add route to your log, you can do it using `$debughub->route(string $route)` method.
+For example:
+```
+$debughub->route('users/view/{id}');
 ```

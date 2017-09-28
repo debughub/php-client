@@ -25,7 +25,7 @@ class Logger implements LoggerInterface
     {
         if ($this->config->getEnabled()) {
             $this->logHandler = new Handlers\LogHandler();
-            $this->queryHandler = new Handlers\QueryHandler();
+            $this->queryHandler = new Handlers\QueryHandler($this->config);
             $this->exceptionHandler = new Handlers\ExceptionHandler();
             $this->requestHandler = new Handlers\RequestHandler($this->config);
             $this->responseHandler = new Handlers\ResponseHandler($this->config);
