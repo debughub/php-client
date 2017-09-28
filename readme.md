@@ -35,9 +35,13 @@ You can use these methods to add extra information about your application. You c
 #### DB Queries
 To log query use the `$debughub->query(string $query, array $data, string $duration, string $connection)` method.
 For example if you use a class for all your Database querying, you can simply add this method to the method, that calls the query. Or you can just add it after the query you want to log.
+
 `$query` - query to execute. You can add a `?` instead of any query params, you want to replace in the query. For example `SELECT * FROM Users where id = ?;` and send the user's ID in data variable.
+
 `$data` -  array of data, that should replace the `?` in your code. This will not be send if you disable `send_query_data` in the config.
+
 `$duration` - milliseconds it took to execute the query.
+
 `$connection` - name of the DB connection. Usefull if your application uses multiple connections
 
 Example:
@@ -56,7 +60,9 @@ $debughub->endQuery($debughubQueryIndex); // you dont have to get or pass the qu
 #### Logging
 To add a simple log use `$debughub->log(string $data, string $type)` method
 Logs work just like queries. You can use log() method to log just one action for example.
+
 `$data` - data to log. It can be any data type, arrays and objects will be serialized.
+
 `$type` ('info' by default) - Name of the log. This will change the way log shows up in the debughub.com application. It should be `info`, `error` or `warning`.
 ```
 $debughub->log('something just happened', 'info');
