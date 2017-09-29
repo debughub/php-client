@@ -5,8 +5,10 @@ It helps you find issues in your code faster and find performance issues while s
 
 ### Installation:
 This package is for plain PHP. For Laravel installation go to debughubs laravel repo
-1. add this to composer.json
+1. add the package to composer.json in `require` section
 `"debughub/php-client": "0.1.*"`
+And add `Debughub` to autoload - psr4 section to your composer.json file:
+`"Debughub\\": ""`
 
 2. create new config file in config dir with content:
 ```
