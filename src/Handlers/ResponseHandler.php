@@ -31,7 +31,7 @@ class ResponseHandler implements Reportable
             'views' => [],
             'headers' => headers_list(),
             'git_branch_name' => $this->gitBranchName,
-            'response_code' => http_response_code(),
+            'response_code' => http_response_code() ? http_response_code() : '-',
             'memory_usage' => memory_get_peak_usage(),
         ];
     }

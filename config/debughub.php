@@ -1,12 +1,15 @@
 <?php
 return [
-    'api_key' => 'qFoxgiEOlYoXWomGQjAO0gC8eyEBC3EX',
-    'project_key' => 'LPYRXBGYKLECATXHESEHUNVOFNXHEP',
-    'endpoint' => 'http://localhost:4002/api/v1/log/',
+    'api_key' => '',
+    'project_key' => '',
+    'endpoint' => 'https://api.debughub.com/api/v1/log/',
     'git_root' => '',
-    'enabled' => true,
+    'enabled' => false,
     'send_query_data' => true,
     'blacklist_params' => [
         'password'
+    ],
+    'ignore_urls' => [
+
     ]
 ];

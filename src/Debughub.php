@@ -47,70 +47,40 @@ class Debughub
         $this->config->setBlacklistParams($config['blacklist_params']);
         $this->config->setEnabled($config['enabled'] ? true : false);
         $this->config->setSendQueryData($config['send_query_data'] ? true : false);
+        $this->config->setIgnoreUrls($config['ignore_urls'] ? $config['ignore_urls'] : []);
 
     }
+
+    // Proxy methods
 
     public function route($route = '') {
-        if ($this->config->getEnabled()) {
-            $this->logger->requestHandler->route = $route;
-        }
+        $this->logger->route($route);
     }
     public function response($response = '') {
-        if ($this->config->getEnabled()) {
-            $this->logger->responseHandler->response = $route;
-        }
+        $this->logger->response($route);
     }
     public function query($query = '', $data = '', $duration = '', $connection = '') {
-        if ($this->config->getEnabled()) {
-            $this->logger->queryHandler->addQuery([
-                'query' => $query,
-                'data' => $data,
-                'duration' => $duration,
-                'connection' => $connection,
-            ]);
-        }
+        $this->logger->query($query, $data, $duration, $connection);
     }
-
 
     public function startQuery($query = '', $data = '', $duration = '', $connection = '') {
-        if ($this->config->getEnabled()) {
-            return $this->logger->queryHandler->addQuery([
-                'query' => $query,
-                'data' => $data,
-                'duration' => $duration,
-                'connection' => $connection,
-            ]);
-        }
-        return 0;
+        $this->logger->startQuery($query, $data, $duration, $connection);
+
     }
     public function endQuery($index = false) {
-        if ($this->config->getEnabled()) {
-            $this->logger->queryHandler->endQuery($index);
-        }
+        $this->logger->endQuery($index);
     }
 
     public function log($data = '', $name = 'info'){
-        if ($this->config->getEnabled()) {
-            $this->logger->logHandler->addLog($data, $name);
-        }
+        $this->logger->log($data, $name);
     }
 
     public function startLog($data = '', $name = 'info') {
-        if ($this->config->getEnabled()) {
-            return $this->logger->logHandler->addLog($data, $name);
-        }
-        return 0;
+        $this->logger->startLog($data, $name);
+
     }
     public function endLog($index = false) {
-        if ($this->config->getEnabled()) {
-            return $this->logger->logHandler->endLog($index);
+        $this->logger->endLog($index);
 
-        }
     }
-}
-
-function microtimeFloat($time)
-{
-  list($usec, $sec) = explode(" ", $time);
-  return ((float)$usec + (float)$sec);
 }

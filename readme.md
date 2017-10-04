@@ -7,8 +7,6 @@ It helps you find issues in your code faster and find performance issues while s
 This package is for plain PHP. For Laravel installation go to debughubs laravel repo
 1. add the package to composer.json in `require` section
 `"debughub/php-client": "0.1.*"`
-And add `Debughub` to autoload - psr4 section to your composer.json file:
-`"Debughub\\": ""`
 
 2. create new config file in config dir with content:
 ```
@@ -49,7 +47,7 @@ For example if you use a class for all your Database querying, you can simply ad
 Example:
 ```
 $db = DB::select("SELECT * FROM USERS"); // some imagined DB class
-debughub->query($db->getQuery(), $db->getData(), $db->getDuration(), 'some connection'); // note - the DB class and its methods are just as a example. the DB class is not part of debughub
+$debughub->query($db->getQuery(), $db->getData(), $db->getDuration(), 'some connection'); // note - the DB class and its methods are just as a example. the DB class is not part of debughub
 ```
 Or you can have debughub calculate the duration as well like this:
 ```

@@ -12,6 +12,7 @@ class Config
     private $blacklistParams;
     private $enabled;
     private $sendQueryData;
+    private $ignoreUrls;
 
     public function setApiKey($key)
     {
@@ -42,6 +43,11 @@ class Config
         $this->sendQueryData = $sendQueryData;
     }
 
+    public function setIgnoreUrls($ignoreUrls)
+    {
+        $this->ignoreUrls = $ignoreUrls;
+    }
+
     public function getApiKey()
     {
         return $this->apiKey;
@@ -70,5 +76,8 @@ class Config
     {
         return $this->sendQueryData;
     }
-
+    public function getIgnoreUrls()
+    {
+        return $this->ignoreUrls;
+    }
 }

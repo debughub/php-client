@@ -40,12 +40,33 @@ class RequestHandler implements Reportable
     public function getData()
     {
         $this->filterParams();
+        if (!$this->method) {
+            $this->method = strtolower(isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'Console');
+        }
+        if (!$this->url) {
+            $this->url = strtolower(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . strtolower(isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '');
+        }
         return [
             'params' => $this->params,
             'headers' => getallheaders(),
-            'method' => strtolower($_SERVER['REQUEST_METHOD']),
+            'method' => $this->method,
             'route' => $this->route,
-            'url' => strtolower($_SERVER['HTTP_HOST']) . strtolower($_SERVER['REQUEST_URI']),
+            'url' => $this->url,
         ];
+    }
+}
+if (!function_exists('getallheaders'))
+{
+    function getallheaders()
+    {
+           $headers = [];
+       foreach ($_SERVER as $name => $value)
+       {
+           if (substr($name, 0, 5) == 'HTTP_')
+           {
+               $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+           }
+       }
+       return $headers;
     }
 }
