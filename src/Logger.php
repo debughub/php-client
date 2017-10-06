@@ -47,7 +47,7 @@ class Logger implements LoggerInterface
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT_MS, 100);
+        curl_setopt($ch, CURLOPT_TIMEOUT_MS, 2000);
         curl_exec ($ch);
         curl_close ($ch);
         return true;
