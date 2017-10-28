@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4" : {
-            "Debughub\\Clients\\Php" : "src/"
+            "Debughub\\Clients\\Php\\" : "src/"
         }
     }
 }
