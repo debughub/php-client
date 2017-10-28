@@ -1,8 +1,8 @@
 <?php
 
-namespace Debughub\PhpClient\Handlers;
+namespace Debughub\Clients\Php\Handlers;
 
-use Debughub\PhpClient\Reportable;
+use Debughub\Clients\Php\Reportable;
 
 class ExceptionHandler implements Reportable
 {

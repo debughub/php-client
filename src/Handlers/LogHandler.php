@@ -1,8 +1,8 @@
 <?php
 
-namespace Debughub\PhpClient\Handlers;
+namespace Debughub\Clients\Php\Handlers;
 
-use Debughub\PhpClient\Reportable;
+use Debughub\Clients\Php\Reportable;
 
 class LogHandler implements Reportable
 {
@@ -51,7 +51,7 @@ class LogHandler implements Reportable
         }
         if (isset($this->logs[$index])) {
             $this->logs[$index]['time'] = microtime();
-            $this->logs[$index]['duration'] = \Debughub\PhpClient\microtimeFloat($this->logs[$index]['time']) - \Debughub\PhpClient\microtimeFloat($this->logs[$index]['start_time']);
+            $this->logs[$index]['duration'] = \Debughub\Clients\Php\microtimeFloat($this->logs[$index]['time']) - \Debughub\Clients\Php\microtimeFloat($this->logs[$index]['start_time']);
         }
     }
 

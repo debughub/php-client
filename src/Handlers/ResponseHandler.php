@@ -1,9 +1,9 @@
 <?php
 
-namespace Debughub\PhpClient\Handlers;
+namespace Debughub\Clients\Php\Handlers;
 
-use Debughub\PhpClient\Reportable;
-use Debughub\PhpClient\Config;
+use Debughub\Clients\Php\Reportable;
+use Debughub\Clients\Php\Config;
 
 
 class ResponseHandler implements Reportable

@@ -24,7 +24,7 @@ return [
 ```
 
 3. Somewhere in your code init the debughub client:
-`$debughub = new \Debughub\PhpClient\Debughub('path/to/config');`
+`$debughub = new \Debughub\Clients\Php\Debughub('path/to/config');`
 Be sure to import the composer's autoload as well.
 From now on debughub client will send request and response info to debughub.com
 

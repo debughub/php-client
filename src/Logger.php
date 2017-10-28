@@ -1,5 +1,5 @@
 <?php
-namespace Debughub\PhpClient;
+namespace Debughub\Clients\Php;
 
 class Logger implements LoggerInterface
 {

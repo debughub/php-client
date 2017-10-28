@@ -1,9 +1,9 @@
 <?php
 
-namespace Debughub\PhpClient\Handlers;
+namespace Debughub\Clients\Php\Handlers;
 
-use Debughub\PhpClient\Reportable;
-use Debughub\PhpClient\Config;
+use Debughub\Clients\Php\Reportable;
+use Debughub\Clients\Php\Config;
 
 class QueryHandler implements Reportable
 {
@@ -40,7 +40,7 @@ class QueryHandler implements Reportable
 
         if (isset($this->queries[$index])) {
             $this->queries[$index]['end_time'] = microtime();
-            $this->queries[$index]['duration'] = round((\Debughub\PhpClient\microtimeFloat($this->queries[$index]['end_time']) - \Debughub\PhpClient\microtimeFloat($this->queries[$index]['start_time'])) * 1000, 2);
+            $this->queries[$index]['duration'] = round((\Debughub\Clients\Php\microtimeFloat($this->queries[$index]['end_time']) - \Debughub\Clients\Php\microtimeFloat($this->queries[$index]['start_time'])) * 1000, 2);
         }
     }
 
