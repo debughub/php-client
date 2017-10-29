@@ -7,7 +7,7 @@ use Debughub\Clients\Php\Reportable;
 class LogHandler implements Reportable
 {
 
-    private $logs = [];
+    protected $logs = [];
 
     public function __construct()
     {
