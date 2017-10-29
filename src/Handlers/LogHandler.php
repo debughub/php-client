@@ -21,6 +21,7 @@ class LogHandler implements Reportable
         } else {
             $this->push(var_export($data, true), $name, $type);
         }
+        return count($this->logs) - 1;
     }
 
     private function push($data, $name, $type)
